@@ -4,30 +4,56 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private float moveSpeed = -0.50f;
-    swipe swipeDirection;
+    private SwipeInput swipeinput;
+    private float moveSpeed;
+    public bool isSwiped;
+    public bool canSwipe;
 
     // Start is called before the first frame update
     void Start()
     {
-        swipeDirection = GetComponent<swipe>();
+        swipeinput = GetComponent<SwipeInput>();
+        isSwiped = false;
+        canSwipe = false;
+        moveSpeed = -0.50f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(swipeDirection.direction == 0)
+        if(!isSwiped)
         {
             transform.Translate(0, moveSpeed * Time.deltaTime, 0);
-
         }
-        else
+
+        if (canSwipe)
         {
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 1));
-            transform.Translate(swipeDirection.direction * Time.deltaTime, 0, 0);
+            swipeinput.CheckSwipe();
         }
-
     }
 
+    //Called from SwipeInput.cs
+    public void SwipeForce(Vector2 swipeDirection)
+    {
+        isSwiped = true;
+        canSwipe = false;
+        GetComponent<Rigidbody2D>().AddForce(swipeDirection);
+    }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "SwipeZone")
+        {
+            canSwipe = true;
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "SwipeZone")
+        {
+            canSwipe = false;
+        }
+    }
+    
 }
