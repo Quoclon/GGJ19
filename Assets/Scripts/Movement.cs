@@ -23,9 +23,11 @@ public class Movement : MonoBehaviour
         }
         else
         {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 1));
             transform.Translate(swipeDirection.direction * Time.deltaTime, 0, 0);
         }
 
-
     }
+
+
 }
