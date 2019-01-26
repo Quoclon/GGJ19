@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class swipe : MonoBehaviour
 {
-
+    /*
     Vector2 startPos, endPos;
     public float direction;
     float touchStartTime, touchFinishTime, timeInterval;
@@ -76,4 +76,5 @@ public class swipe : MonoBehaviour
         canSwipe = false;
         Debug.Log("exited");
     }
+    */
 }
