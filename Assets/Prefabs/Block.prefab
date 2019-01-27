@@ -84,7 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-
 --- !u!50 &6757968964881106596
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +131,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
-
 --- !u!114 &347741509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,9 +166,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6757968964881106606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-
   m_Script: {fileID: 11500000, guid: 215f37c9ac0da6d4f8f60a95e0007f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isScored: 0
-

@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private SwipeInput swipeinput; 
+    private SwipeInput swipeinput;
     private float moveSpeed;
     public bool isSwiped;
     public bool canSwipe;
-
     public int hitSample; // sample to make contact with swipearea
     public float interpoRange;
 
@@ -18,7 +17,6 @@ public class Movement : MonoBehaviour
     public Vector2 spawnPos;
     public Vector2 removePos;
     NoteSpawner noteSpawner;
-
 
 
     // Start is called before the first frame update
