@@ -5,15 +5,16 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    int comboCount;
-    float comboBonus;
-    float baseScoreIncrease;
-    float score;
-    float sleepMeterMax;
-    float sleepMeterCurr;
-    float sleepMeterBonus;
-    float scoreUpdateFrequency;
-    float timeCounter;
+    public int comboCount;
+    public float comboBonus;
+    public float baseScoreIncrease;
+    public float score;
+    public int scoreConvertedToInt;
+    public float sleepMeterMax;
+    public float sleepMeterCurr;
+    public float sleepMeterBonus;
+    public float scoreUpdateFrequency;
+    public float timeCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class ScoreManager : MonoBehaviour
         comboCount = 0;
         baseScoreIncrease = 10;
         score = 0;
+        scoreConvertedToInt = 0;
         sleepMeterMax = 100;
         sleepMeterCurr = 0;
         sleepMeterBonus = 1;
@@ -36,6 +38,9 @@ public class ScoreManager : MonoBehaviour
         {
             IncreaseScoreOverTime();
             timeCounter = scoreUpdateFrequency;
+            scoreConvertedToInt = (int)score;
+            //Debug.Log("Original Score: " + score);
+            //Debug.Log("Converted Score: " + scoreConvertedToInt);
         }
 
         timeCounter -= Time.deltaTime;
@@ -71,14 +76,15 @@ public class ScoreManager : MonoBehaviour
     {
         comboCount += amount;
         comboBonus = 1 + (comboCount / 10);
-        Debug.Log(comboCount);
+        Debug.Log("Combo Count: " + comboCount);
     }
 
     public void ResetComboCount()
     {
         comboCount = 0;
         comboBonus = 0;
-        Debug.Log(comboCount);
+        sleepMeterCurr = 0;
+        //Debug.Log(comboCount);
     }
 
 }
