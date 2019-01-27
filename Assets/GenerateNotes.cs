@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GenerateNotes : MonoBehaviour
 {
-    // generates notes from CSV file
+    //---------------------------------------------------------
+    // generates a list of notes from a CSV file
+    //---------------------------------------------------------
 
     public string csvFileName;
 
@@ -32,9 +34,4 @@ public class GenerateNotes : MonoBehaviour
         print(dspStartTime);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
