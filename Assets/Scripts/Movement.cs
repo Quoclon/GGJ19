@@ -28,7 +28,6 @@ public class Movement : MonoBehaviour
         isSwiped = false;
         canSwipe = false;
         moveSpeed = -0.50f;
-        print("My spacing:) "+spacing);
     }
 
     // Update is called once per frame
@@ -36,12 +35,13 @@ public class Movement : MonoBehaviour
     {
         float posInterpolate = (spacing - (hitSample-noteSpawner.currentSampleTime)) / (float)spacing;
         interpoRange = posInterpolate;
-
-        transform.position = Vector2.Lerp(
-            spawnPos,
-            removePos,
-            posInterpolate
-        );
+        if(!isSwiped){
+            transform.position = Vector2.Lerp(
+                spawnPos,
+                removePos,
+                posInterpolate
+            );
+        }
         // if(!isSwiped)
         // {
         //     transform.Translate(0, moveSpeed * Time.deltaTime, 0);
@@ -65,6 +65,7 @@ public class Movement : MonoBehaviour
     {
         if(collision.tag == "SwipeZone")
         {
+            print("ontriggerenter: "+collision.name);
             canSwipe = true;
         }
     }
