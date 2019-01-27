@@ -17,6 +17,7 @@ public class Movement : MonoBehaviour
     public Vector2 spawnPos;
     public Vector2 removePos;
     NoteSpawner noteSpawner;
+    ScoreManager scoreManager;
 
 
     // Start is called before the first frame update
@@ -25,6 +26,9 @@ public class Movement : MonoBehaviour
         spawnPos = transform.position;
         noteSpawner = GameObject.Find("Spawner").GetComponent<NoteSpawner>();
         swipeinput = GetComponent<SwipeInput>();
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+
+
         NoteDeathTimer = 1f;
         isSwiped = false;
         canSwipe = false;
@@ -88,6 +92,7 @@ public class Movement : MonoBehaviour
             yield return new WaitForSeconds(delay);
             if (!isSwiped)
             {
+                scoreManager.ResetComboCount();
                 Destroy(gameObject);
             }
         }
