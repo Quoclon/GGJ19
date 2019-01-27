@@ -79,7 +79,6 @@ public class ScoreManager : MonoBehaviour
         comboCount = 0;
         comboBonus = 0;
         Debug.Log(comboCount);
-
     }
 
 }
