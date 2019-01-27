@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
 
 
-        NoteDeathTimer = 1f;
+        NoteDeathTimer = 10000f;
         isSwiped = false;
         canSwipe = false;
     }

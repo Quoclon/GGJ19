@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 347741509}
   - component: {fileID: 347741510}
   - component: {fileID: 347741513}
+  - component: {fileID: 3748197418505552850}
   m_Layer: 9
   m_Name: Block
   m_TagString: Untagged
@@ -159,6 +160,7 @@ MonoBehaviour:
   canSwipe: 0
   hitSample: 0
   interpoRange: 0
+  NoteDeathTimer: 0
   spacing: 0
   spawnPos: {x: 0, y: 0}
   removePos: {x: 0, y: 0}
@@ -176,3 +178,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasCollided: 0
   score: 0
+--- !u!114 &3748197418505552850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757968964881106606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2d87f27cc621443a606d2a3c2a0e4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delay: 0
