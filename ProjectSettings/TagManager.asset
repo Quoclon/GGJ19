@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - SwipeZone
+  - Blue
+  - Green
+  - Yellow
+  - Magenta
+  - Black
   layers:
   - Default
   - TransparentFX
@@ -14,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - ScoreZone
   - 
   - 
   - 

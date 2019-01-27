@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private SwipeInput swipeinput;
+    private SwipeInput swipeinput; 
     private float moveSpeed;
     public bool isSwiped;
     public bool canSwipe;
+    
 
     // Start is called before the first frame update
     void Start()
