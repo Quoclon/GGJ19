@@ -76,7 +76,7 @@ public class ScoreManager : MonoBehaviour
     {
         comboCount += amount;
         comboBonus = 1 + (comboCount / 10);
-        Debug.Log("Combo Count: " + comboCount);
+        //Debug.Log("Combo Count: " + comboCount);
     }
 
     public void ResetComboCount()
