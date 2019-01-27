@@ -740,7 +740,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.34
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1150,6 +1150,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4193126075743098128, guid: eb21a30b6adcc294584909bbe7c32539,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4193126075743098128, guid: eb21a30b6adcc294584909bbe7c32539,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb21a30b6adcc294584909bbe7c32539, type: 3}
