@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6757968964881106607}
   - component: {fileID: 6757968964881106596}
   - component: {fileID: 6757968964881106595}
-  - component: {fileID: 6757968964881106594}
+  - component: {fileID: 3606178528631449405}
   m_Layer: 0
   m_Name: Block
   m_TagString: Untagged
@@ -95,6 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf5e0a50bde99f54893ea4a8f5b98cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSwiped: 0
+  canSwipe: 0
 --- !u!50 &6757968964881106596
 Rigidbody2D:
   serializedVersion: 4
@@ -142,7 +144,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &6757968964881106594
+--- !u!114 &3606178528631449405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,7 +153,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6757968964881106606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3d8bdd248a7394eab22caf942229dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 82a01608926a1ce47942836ff1b84a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0

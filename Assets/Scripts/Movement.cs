@@ -8,23 +8,44 @@ public class Movement : MonoBehaviour
     private float moveSpeed;
     public bool isSwiped;
     public bool canSwipe;
+    public int hitSample; // sample to make contact with swipearea
+    public float interpoRange;
+
+    [HideInInspector]
+    public int spacing; // how many samples each note is on the screen for. Lower vals = faster. 
+                        // controlled in NoteSpawner
+    public Vector2 spawnPos;
+    public Vector2 removePos;
+    NoteSpawner noteSpawner;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        spawnPos = transform.position;
+        noteSpawner = GameObject.Find("Spawner").GetComponent<NoteSpawner>();
         swipeinput = GetComponent<SwipeInput>();
         isSwiped = false;
         canSwipe = false;
         moveSpeed = -0.50f;
+        print("My spacing:) "+spacing);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!isSwiped)
-        {
-            transform.Translate(0, moveSpeed * Time.deltaTime, 0);
-        }
+        float posInterpolate = (spacing - (hitSample-noteSpawner.currentSampleTime)) / (float)spacing;
+        interpoRange = posInterpolate;
+
+        transform.position = Vector2.Lerp(
+            spawnPos,
+            removePos,
+            posInterpolate
+        );
+        // if(!isSwiped)
+        // {
+        //     transform.Translate(0, moveSpeed * Time.deltaTime, 0);
+        // }
 
         if (canSwipe)
         {
