@@ -410,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35184f835503c044aa1d5d314ec77b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+
   csvFileName: MarkerSamplesSlow
   dspStartTime: 0
 --- !u!1 &519420028
@@ -662,6 +663,7 @@ Transform:
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1231015947
+
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -686,11 +688,13 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1231015947}
   m_Enabled: 1
+
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39266e24469333345b7e2a6969d406d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1231015949
+
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1245,6 +1249,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4193126075743098128, guid: eb21a30b6adcc294584909bbe7c32539,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4193126075743098128, guid: eb21a30b6adcc294584909bbe7c32539,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb21a30b6adcc294584909bbe7c32539, type: 3}
