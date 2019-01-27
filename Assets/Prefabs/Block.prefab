@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 347741509}
   - component: {fileID: 347741510}
   - component: {fileID: 347741513}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,6 +157,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isSwiped: 0
   canSwipe: 0
+  hitSample: 0
+  interpoRange: 0
+  spacing: 0
+  spawnPos: {x: 0, y: 0}
+  removePos: {x: 0, y: 0}
 --- !u!114 &347741513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,4 +174,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215f37c9ac0da6d4f8f60a95e0007f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isScored: 0
+  hasCollided: 0
+  score: 0

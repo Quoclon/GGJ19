@@ -8,8 +8,7 @@ TagManager:
   - Blue
   - Green
   - Yellow
-  - Magenta
-  - Black
+  - ScoreManager
   layers:
   - Default
   - TransparentFX
@@ -20,7 +19,7 @@ TagManager:
   - 
   - 
   - ScoreZone
-  - 
+  - Note
   - 
   - 
   - 
