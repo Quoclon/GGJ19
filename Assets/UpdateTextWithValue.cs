@@ -7,16 +7,23 @@ public class UpdateTextWithValue : MonoBehaviour
 {
     TextMeshProUGUI textmeshPro;
     int value;
-    public GameObject scoreContainer;
+    ScoreManager scoreManager;
+
+    //public GameObject scoreContainer;
     // Start is called before the first frame update
     void Start()
     {
         textmeshPro = GetComponent<TextMeshProUGUI>();
         print("tmp: "+textmeshPro);
+
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+
         //==============================================\\
         // !!! uncomment and replace link w/ appropriate var
 
-        // value = scoreContainer.VARIABLE_NAME_HERE;
+        //value = scoreContainer.VARIABLE_NAME_HERE;
+        value = scoreManager.comboCount;
+        Debug.Log("TEEEST: " + value);
         //==============================================//
 
     }
@@ -24,6 +31,7 @@ public class UpdateTextWithValue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        value = scoreManager.comboCount;
         textmeshPro.SetText("{0}",value);
     }
 }

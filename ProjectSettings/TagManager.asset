@@ -9,6 +9,8 @@ TagManager:
   - Green
   - Yellow
   - ScoreManager
+  - Black
+  - Magenta
   layers:
   - Default
   - TransparentFX
@@ -43,6 +45,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ScoreZones
+    uniqueID: 3805162137
+    locked: 0
+  - name: Background
+    uniqueID: 1725151913
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
