@@ -5,11 +5,11 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     private SwipeInput swipeinput;
-    private float moveSpeed;
     public bool isSwiped;
     public bool canSwipe;
     public int hitSample; // sample to make contact with swipearea
     public float interpoRange;
+    public float NoteDeathTimer;
 
     [HideInInspector]
     public int spacing; // how many samples each note is on the screen for. Lower vals = faster. 
@@ -25,9 +25,9 @@ public class Movement : MonoBehaviour
         spawnPos = transform.position;
         noteSpawner = GameObject.Find("Spawner").GetComponent<NoteSpawner>();
         swipeinput = GetComponent<SwipeInput>();
+        NoteDeathTimer = 1f;
         isSwiped = false;
         canSwipe = false;
-        moveSpeed = -0.50f;
     }
 
     // Update is called once per frame
@@ -42,14 +42,15 @@ public class Movement : MonoBehaviour
                 posInterpolate
             );
         }
-        // if(!isSwiped)
-        // {
-        //     transform.Translate(0, moveSpeed * Time.deltaTime, 0);
-        // }
 
         if (canSwipe)
         {
             swipeinput.CheckSwipe();
+        }
+
+        if(canSwipe && !isSwiped)
+        {
+            StartCoroutine(DestroyNote(NoteDeathTimer));
         }
     }
 
@@ -61,15 +62,16 @@ public class Movement : MonoBehaviour
         GetComponent<Rigidbody2D>().AddForce(swipeDirection);
     }
 
+    //Checks when Note enters the "SwipeZone" in the centre of the screen
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "SwipeZone")
         {
-            print("ontriggerenter: "+collision.name);
             canSwipe = true;
         }
     }
 
+    //Checks when Note exits the "SwipeZone" in the centre of the screen
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "SwipeZone")
@@ -77,5 +79,21 @@ public class Movement : MonoBehaviour
             canSwipe = false;
         }
     }
-    
+
+
+    IEnumerator DestroyNote(float delay)
+    {
+        if (delay != 0)
+        {
+            yield return new WaitForSeconds(delay);
+            if (!isSwiped)
+            {
+                Destroy(gameObject);
+            }
+        }
+            
+    }
+
+
+
 }

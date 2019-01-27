@@ -5,16 +5,24 @@ using UnityEngine;
 public class ScoreHandler : MonoBehaviour
 {
     Color originalColor;
+    ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
     {
         originalColor = gameObject.GetComponent<SpriteRenderer>().color;
+        GameObject[] scoreManagerGO = GameObject.FindGameObjectsWithTag("ScoreManager");
+        scoreManager = scoreManagerGO[0].GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            scoreManager.IncreaseComboCount(1);
+        }
         
     }
 
@@ -24,17 +32,25 @@ public class ScoreHandler : MonoBehaviour
 
         if (collision.gameObject.layer != scoreZoneLayer)
         {
-            if (gameObject.tag == collision.tag && collision.GetComponent<NoteStats>().hasCollided == false)
+            if(collision.GetComponent<NoteStats>().hasCollided == false && collision.GetComponent<Movement>().isSwiped == true)
             {
-                collision.GetComponent<NoteStats>().scored = true;
-                collision.GetComponent<NoteStats>().hasCollided = true;
-                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-                Debug.Log("Scored with color: " + collision.GetInstanceID());   
-            }
-            if (gameObject.tag != collision.tag && collision.GetComponent<NoteStats>().hasCollided == false)
-            {
-                gameObject.GetComponent<SpriteRenderer>().color = Color.red;
-                //Debug.Log("NOT Scored with color: " + gameObject.tag);
+                if (gameObject.tag == collision.tag)
+                
+                {
+                    collision.GetComponent<NoteStats>().hasCollided = true;
+                    scoreManager.IncreaseComboCount(1);
+                    scoreManager.IncreaseSleepMeter(10);
+                    Destroy(collision.gameObject);
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+
+                if (gameObject.tag != collision.tag)
+                {
+                    collision.GetComponent<NoteStats>().hasCollided = true;
+                    scoreManager.ResetComboCount();
+                    Destroy(collision.gameObject);
+                    //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                }
             }
         }
         
@@ -43,6 +59,9 @@ public class ScoreHandler : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collision)
     {
         gameObject.GetComponent<SpriteRenderer>().color = originalColor;
-        Destroy(collision.gameObject);
+        if (collision.GetComponent<NoteStats>().hasCollided == true)
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
