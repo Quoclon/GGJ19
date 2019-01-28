@@ -29,7 +29,7 @@ public class Movement : MonoBehaviour
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
 
 
-        NoteDeathTimer = 0.75f;
+        NoteDeathTimer =1000;
         isSwiped = false;
         canSwipe = false;
     }
@@ -54,7 +54,7 @@ public class Movement : MonoBehaviour
 
         if(canSwipe && !isSwiped)
         {
-            StartCoroutine(DestroyNote(NoteDeathTimer));
+            //StartCoroutine(DestroyNote(NoteDeathTimer));
         }
     }
 

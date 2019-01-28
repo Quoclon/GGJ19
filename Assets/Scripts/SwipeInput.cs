@@ -57,7 +57,33 @@ public class SwipeInput : MonoBehaviour
 
     private void ApplySwipe()
     {
-        gameObject.GetComponent<Movement>().SwipeForce(-direction.normalized * swipeForce);
+         Vector2 directionNormalized = -direction.normalized;
+        //TODO: Have it be left, right, down... rather than angles.
+
+        gameObject.GetComponent<Movement>().SwipeForce(directionNormalized * swipeForce);
+
+        /*
+        Debug.Log("Normalized Direction: " + directionNormalized.y);
+        Vector2 newForce = new Vector2(0,0);
+
+        if(directionNormalized.x < 0)
+        {
+            newForce = new Vector2(-1, 0) * swipeForce;
+        }
+
+        if (directionNormalized.x > 0)
+        {
+            newForce = new Vector2(1, 0) * swipeForce;
+        }
+
+        if (directionNormalized.y < 0.25)
+        {
+            newForce = new Vector2(0, -1) * swipeForce;
+        }
+
+        gameObject.GetComponent<Movement>().SwipeForce(newForce);
+        */
+
     }
 
     //End of one swipe could be considered the start of another swipe??

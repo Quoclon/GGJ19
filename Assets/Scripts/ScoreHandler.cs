@@ -6,6 +6,7 @@ public class ScoreHandler : MonoBehaviour
 {
     Color originalColor;
     ScoreManager scoreManager;
+    //public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -13,6 +14,7 @@ public class ScoreHandler : MonoBehaviour
         originalColor = gameObject.GetComponent<SpriteRenderer>().color;
         GameObject[] scoreManagerGO = GameObject.FindGameObjectsWithTag("ScoreManager");
         scoreManager = scoreManagerGO[0].GetComponent<ScoreManager>();
+        
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class ScoreHandler : MonoBehaviour
         {
             if(collision.GetComponent<NoteStats>().hasCollided == false && collision.GetComponent<Movement>().isSwiped == true)
             {
-                Debug.Log("Collision Tag: " + collision.tag);
+                //Debug.Log("Collision Tag: " + collision.tag);
                 if (gameObject.tag == collision.tag)
                 
                 {
@@ -42,6 +44,7 @@ public class ScoreHandler : MonoBehaviour
                     scoreManager.IncreaseComboCount(1);
                     scoreManager.IncreaseSleepMeter(10);
                     Destroy(collision.gameObject);
+                    //anim.SetBool("Happy", true);
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.white;
                 }
 
@@ -50,6 +53,7 @@ public class ScoreHandler : MonoBehaviour
                     collision.GetComponent<NoteStats>().hasCollided = true;
                     scoreManager.ResetComboCount();
                     Destroy(collision.gameObject);
+                    //anim.SetTrigger("Sad");
                     //gameObject.GetComponent<SpriteRenderer>().color = Color.red;
                 }
             }

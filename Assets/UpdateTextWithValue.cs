@@ -23,7 +23,7 @@ public class UpdateTextWithValue : MonoBehaviour
 
         //value = scoreContainer.VARIABLE_NAME_HERE;
         value = scoreManager.comboCount;
-        Debug.Log("TEEEST: " + value);
+        //Debug.Log("TEEEST: " + value);
         //==============================================//
 
     }
