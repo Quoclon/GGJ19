@@ -36,7 +36,7 @@ public class ScoreHandler : MonoBehaviour
         {
             if(collision.GetComponent<NoteStats>().hasCollided == false && collision.GetComponent<Movement>().isSwiped == true)
             {
-                Debug.Log("Collision Tag: " + collision.tag);
+                //Debug.Log("Collision Tag: " + collision.tag);
                 if (gameObject.tag == collision.tag)
                 
                 {
